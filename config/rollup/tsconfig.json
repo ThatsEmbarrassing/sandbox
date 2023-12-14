@@ -1,0 +1,12 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "module": "CommonJS",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"],
+            "@factories/*": ["./src/factories/*"]
+        }
+    },
+    "include": ["src/**/*.ts"]
+}
