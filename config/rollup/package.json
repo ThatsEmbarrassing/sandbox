@@ -6,14 +6,22 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "clean": "rm -rf dist",
-        "build": "pnpm run clean && tsc --outDir dist --project tsconfig.json && mv ./dist/config/rollup/src/* ./dist && rm -rf ./dist/config"
+        "compile": "tsc --project tsconfig.json && tsc-alias ./dist -p tsconfig.json",
+        "build_prepare": "mv ./dist/src/* ./dist && rm -rf ./dist/src",
+        "build": "pnpm run clean && pnpm run compile && pnpm run build_prepare"
     },
     "dependencies": {
         "@rollup/plugin-alias": "^5.1.0",
         "@rollup/plugin-node-resolve": "^15.2.3",
-        "rollup": "^4.9.0",
         "rollup-plugin-delete": "^2.0.0",
         "rollup-plugin-dts": "^6.1.0",
         "rollup-plugin-esbuild": "^6.1.0"
+    },
+    "devDependencies": {
+        "rollup": "^4.9.0",
+        "tsc-alias": "^1.8.8"
+    },
+    "peerDependencies": {
+        "rollup": "^4.9.0"
     }
 }
