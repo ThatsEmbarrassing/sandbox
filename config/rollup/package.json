@@ -8,7 +8,9 @@
         "clean": "rm -rf dist",
         "compile": "tsc --project tsconfig.json && tsc-alias ./dist -p tsconfig.json",
         "build_prepare": "mv ./dist/src/* ./dist && rm -rf ./dist/src",
-        "build": "pnpm run clean && pnpm run compile && pnpm run build_prepare"
+        "build": "pnpm run clean && pnpm run compile && pnpm run build_prepare",
+        "lint": "eslint",
+        "lint:fix": "eslint --fix"
     },
     "dependencies": {
         "@rollup/plugin-alias": "^5.1.0",

@@ -4,14 +4,16 @@
     "description": "",
     "main": "./dist/index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "rollup -c rollup.config.ts --configPlugin rollup-plugin-ts --bundleConfigAsCjs",
+        "build:prod": "pnpm run build --environment mode=production",
+        "lint": "eslint",
+        "lint:fix": "eslint --fix"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "@sandbox/rollup": "workspace:^",
-        "rollup": "^4.9.0",
-        "rollup-plugin-ts": "^3.4.5"
+        "rollup": "^4.9.0"
     }
 }

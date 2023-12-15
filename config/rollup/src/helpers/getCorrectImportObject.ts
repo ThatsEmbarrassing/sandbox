@@ -1,5 +1,6 @@
 type GetCorrectImportObjectResult<T> = T extends NonNullable<infer R>
-    ? R extends Function
+    ? // eslint-disable-next-line @typescript-eslint/ban-types
+      R extends Function
         ? R
         : R extends { default: infer L }
         ? L
@@ -26,6 +27,7 @@ export const getCorrectImportObject = <T>(
 
                 return moduleWithDefault.default as GetCorrectImportObjectResult<T>;
             }
+        // eslint-disable-next-line no-fallthrough
         case "function":
         default:
             return module;

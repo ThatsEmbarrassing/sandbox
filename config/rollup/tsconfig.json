@@ -9,6 +9,5 @@
             "@/*": ["./src/*"],
             "@factories/*": ["./src/factories/*"]
         }
-    },
-    "include": ["src/**/*.ts"]
+    }
 }
